@@ -1,4 +1,4 @@
-import { Container, Paper, TextField, Typography, withStyles } from '@material-ui/core';
+import { Button, Container, Grid, Paper, TextField, Typography, withStyles } from '@material-ui/core';
 import React, { Component } from 'react';
 import randomWords from "random-words";
 
@@ -115,6 +115,10 @@ class Game extends Component {
         }
     }
 
+    handleRestart = () => {
+
+    }
+
     render() {
         const {classes} = this.props;
 
@@ -134,9 +138,18 @@ class Game extends Component {
                             <span>{neutralText}</span>
                         </Typography>
                         <TextField label="Type Here" fullWidth multiline rows={7} className={classes.typing} onChange={this.handleInputChanged} value={this.state.input}/>
-                        <Typography variant="h5">
-                            WPM: {this.state.wpm}
-                        </Typography>
+                        <Grid container>
+                            <Grid item xs={6}>
+                                <Typography variant="h5">
+                                    WPM: {this.state.wpm}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={6}>
+                                <Button className={classes.restartButton} variant="contained" color="primary" onClick={this.handleRestart}>
+                                    Restart
+                                </Button>
+                            </Grid>
+                        </Grid>
                     </Paper>
                 </Container>
             </div>
