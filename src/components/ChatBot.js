@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import { Resizable } from 're-resizable';
+import { withStyles } from '@material-ui/core';
 
 const styles = theme => ({
     mainBox: {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        border: "solid 3px #ddd",
+        border: "solid 3px " + theme.palette.primary.main,
         background: "#f0f0f0"
     }
 });

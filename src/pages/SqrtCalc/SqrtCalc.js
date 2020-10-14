@@ -6,7 +6,7 @@ import AutosizeInput from 'react-input-autosize';
 
 export default class SqrtCalc extends Component {
     constructor(props) {
-        super()
+        super(props);
         this.state = {
             text: "Fucker",
             x: 1,
