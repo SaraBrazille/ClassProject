@@ -2,19 +2,23 @@ import React, { Component } from 'react';
 import { render } from "react-dom";
 import { Resizable } from 're-resizable';
 
-export default class ChatBot extends Component {
+const styles = theme => ({
+    mainBox: {
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        border: "solid 3px #ddd",
+        background: "#f0f0f0"
+    }
+});
+
+class ChatBot extends Component {
     render() {
-        const style = {
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            border: "solid 1px #ddd",
-            background: "#f0f0f0"
-        };
+        const classes = this.props.classes
         return (
 
             <Resizable
-                style={style}
+                className = {classes.mainBox}
                 defaultSize={{
                     width: 200,
                     height: 200
@@ -25,4 +29,5 @@ export default class ChatBot extends Component {
         )
     }
 }
+export default withStyles(styles)(ChatBot);
 
