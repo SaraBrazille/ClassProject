@@ -7,13 +7,9 @@ class Animal {
         this.name = name;
         this.animalType = animalType;
         this.weight = weight;
-        // this.result = "";
     }
     speak() {
-        // this.setState({
-        //     result:`${this.name} is a ${this.animalType} and weighs ${this.weight}`
-        // })
-        console.log(`${this.name} is a ${this.animalType} and weighs ${this.weight}`);
+        return `${this.name} is a ${this.animalType} and weighs ${this.weight}`;
     }
 }
 
@@ -27,7 +23,7 @@ export default class ClassesTest extends Component {
             box2: "Animal Type",
             box3: "Animal's Weight",
             weight: "",
-            response: ""
+            response: []
         }
     }
 
@@ -58,13 +54,16 @@ export default class ClassesTest extends Component {
         generator= new Animal(this.state.box1, this.state.box2, this.state.box3)
         let otherGenerator = generator.speak();
 
+        let newResponse = [...this.state.response, otherGenerator];
+
         this.setState({
-            response: otherGenerator
+            response: newResponse
         })
 
     }
 
     render() {
+        console.log(this.state.response);
         return (
             <div>
 
@@ -72,8 +71,12 @@ export default class ClassesTest extends Component {
                 <TextField id="filled-basic" variant="filled" value={this.state.box2} onChange={this.inputAnimalType} /> <br /><br />
                 <TextField id="filled-basic" variant="filled" value={this.state.box3} onChange={this.inputWeight} /> <br /><br />
                 <Button variant="contained" color="primary" onClick={this.animalGen}>Generate Animal</Button>
-                <h3>{this.state.response}</h3>
-                {/* <h3>{this.result}</h3> */}
+
+                {
+                    this.state.response.map(
+                        (response) => (<h3>{response}</h3>)
+                    )
+                }
 
             </div>
         )
