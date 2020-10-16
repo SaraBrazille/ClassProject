@@ -40,6 +40,10 @@ const styles = theme => ({
         left: 0,
         right: 0,
         backgroundImage: "url('/blood.jpg')"
+    },
+    restartButton:{
+        display: "flex",
+        justifyContent: "flex-end"
     }
 });
 
@@ -116,7 +120,7 @@ class Game extends Component {
     }
 
     handleRestart = () => {
-
+        this.componentDidMount();
     }
 
     render() {
@@ -144,7 +148,7 @@ class Game extends Component {
                                     WPM: {this.state.wpm}
                                 </Typography>
                             </Grid>
-                            <Grid item xs={6}>
+                            <Grid className = {classes.restartButton} item xs={6}>
                                 <Button className={classes.restartButton} variant="contained" color="primary" onClick={this.handleRestart}>
                                     Restart
                                 </Button>
