@@ -148,8 +148,8 @@ class Game extends Component {
                                     WPM: {this.state.wpm}
                                 </Typography>
                             </Grid>
-                            <Grid className = {classes.restartButton} item xs={6}>
-                                <Button className={classes.restartButton} variant="contained" color="primary" onClick={this.handleRestart}>
+                            <Grid className = {classes.restartButton} container xs={6}>
+                                <Button className = {classes.restartButton} variant="contained" color="primary" onClick={this.handleRestart}>
                                     Restart
                                 </Button>
                             </Grid>
