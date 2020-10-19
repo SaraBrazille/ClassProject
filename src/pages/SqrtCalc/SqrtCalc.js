@@ -71,7 +71,7 @@ export default class SqrtCalc extends Component {
                 <h1>Polynomial Root X<sub>1</sub> = {this.state.outputOne}</h1>
                 <h1>Polynomial Root X<sub>2</sub> = {this.state.outputTwo}</h1> <br />
                 <Graph dataToGraphX={this.state.input1} dataToGraphY={this.state.input2} dataToGraphZ={this.state.input3} />
-                <Graph {...other} />
+                {/* <Graph {...other} /> */}
             </div >
         )
     }
