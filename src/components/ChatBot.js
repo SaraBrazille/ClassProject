@@ -6,10 +6,22 @@ import { withStyles } from '@material-ui/core';
 const styles = theme => ({
     mainBox: {
         display: "flex",
+        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        border: "solid 3px " + theme.palette.primary.main,
-        background: "#f0f0f0"
+        border: "solid 3px " + theme.palette.secondary.main,
+        background: theme.palette.primary.main,
+        display: 'flex'
+    },
+    bodyBox: {
+        height: "100px",
+        wordBreak: "break-all"
+    },
+    textBox: {
+        height: "40px",
+        alignContent: "flex-end",
+        width: "100%",
+        wordBreak: "break-all"
     }
 });
 
@@ -19,13 +31,17 @@ class ChatBot extends Component {
         return (
 
             <Resizable
-                className = {classes.mainBox}
+                className={classes.mainBox}
                 defaultSize={{
                     width: 200,
                     height: 200
                 }}
             >
-                001
+                <div className={classes.bodyBox}>
+                    randomtesting
+                </div>
+                <input type="text" className={classes.textBox} value="test"/>
+                
             </Resizable>
         )
     }
