@@ -16,18 +16,27 @@ const styles = theme => ({
         bottom: 20,
         right: 20
     },
+    title: {
+        height: "40px",
+        width: "100%",
+        textDecoration: "underline",
+        textAlign: "center"
+    },
     bodyBox: {
+        flex: "1",
         height: "100px",
-        wordBreak: "break-all"
+        wordBreak: "break-all",
+        background: "lightGray",
+        width: "100%"
     },
     textBox: {
         height: "40px",
-        alignContent: "flex-end",
         width: "100%",
         wordBreak: "break-all",
         border: "solid 3px " + theme.palette.primary.main,
         background: "#f0f0f0",
-        boxSizing: "border-box"
+        boxSizing: "border-box",
+        
     },
 });
 
@@ -43,8 +52,9 @@ class ChatBot extends Component {
                     height: 200
                 }}
             >
+                <div className={classes.title}> Chatting with Crystal</div>
                 <div className={classes.bodyBox}>
-                    randomtesting
+                    nope
                 </div>
                 <input type="text" className={classes.textBox} onChange={() => {}} value="test"/>
                 
