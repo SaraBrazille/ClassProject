@@ -11,7 +11,10 @@ const styles = theme => ({
         justifyContent: "center",
         border: "solid 3px " + theme.palette.secondary.main,
         background: theme.palette.primary.main,
-        display: 'flex'
+        display: 'flex',
+        position: "absolute !important",
+        bottom: 20,
+        right: 20
     },
     bodyBox: {
         height: "100px",
@@ -24,10 +27,8 @@ const styles = theme => ({
         wordBreak: "break-all",
         border: "solid 3px " + theme.palette.primary.main,
         background: "#f0f0f0",
-        position: "absolute !important",
-        bottom: 0,
-        right: 0
-    }
+        boxSizing: "border-box"
+    },
 });
 
 class ChatBot extends Component {
@@ -45,7 +46,7 @@ class ChatBot extends Component {
                 <div className={classes.bodyBox}>
                     randomtesting
                 </div>
-                <input type="text" className={classes.textBox} value="test"/>
+                <input type="text" className={classes.textBox} onChange={() => {}} value="test"/>
                 
             </Resizable>
         )

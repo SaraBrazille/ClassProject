@@ -18,7 +18,8 @@ const styles = theme => ({
         textAlign: "left"
     },
     typing:{
-        marginTop: theme.spacing(1)
+        marginTop: theme.spacing(1),
+        marginBottom: theme.spacing(1)
     },
     good:{
         backgroundColor: "#c8e6c9"
@@ -149,7 +150,7 @@ class Game extends Component {
                                     WPM: {this.state.wpm}
                                 </Typography>
                             </Grid>
-                            <Grid className = {classes.restartButton} container xs={6}>
+                            <Grid item className = {classes.restartButton} container xs={6}>
                                 <Button className = {classes.restartButton} variant="contained" color="primary" onClick={this.handleRestart}>
                                     Restart
                                 </Button>
