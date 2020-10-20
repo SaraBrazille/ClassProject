@@ -9,6 +9,8 @@ import Other from './pages/Other';
 import SqrtCalc from './pages/SqrtCalc';
 import PopUps from './pages/PopUps';
 import Game from "./pages/Game";
+import ClassesTest from './pages/ClassesTest/ClassesTest';
+import Responsive from './pages/Responsive';
 
 let theme = createMuiTheme({
   palette: {
@@ -32,6 +34,9 @@ function App() {
       <div className="App">
         <Router>
           <Switch>
+          <Route path="/Responsive">
+              <Responsive />
+            </Route>
             <Route path="/Game">
               <Game />
             </Route>
@@ -43,6 +48,9 @@ function App() {
             </Route>
             <Route path="/sqrtcalc">
               <SqrtCalc />
+            </Route>
+            <Route path="/classestest">
+              <ClassesTest />
             </Route>
             <Route path="/">
               <Home />
