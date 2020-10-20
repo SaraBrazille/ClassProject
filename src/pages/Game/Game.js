@@ -1,4 +1,4 @@
-import { Button, Container, Grid, Paper, TextField, Typography, withStyles } from '@material-ui/core';
+import { Box, Button, Container, Grid, Paper, TextField, Typography, withStyles } from '@material-ui/core';
 import React, { Component } from 'react';
 import randomWords from "random-words";
 
@@ -45,6 +45,9 @@ const styles = theme => ({
     restartButton:{
         display: "flex",
         justifyContent: "flex-end"
+    },
+    container: {
+        textAlign: "center"
     }
 });
 
@@ -133,8 +136,8 @@ class Game extends Component {
         let neutralText = this.state.text.substring(this.state.numGood + this.state.numBad, this.state.text.length)
 
         return (
-            <div className={this.state.numBad > 3 ? classes.blackBack : classes.back}>
-                <Container maxWidth="md">
+            <Box className={this.state.numBad > 3 ? classes.blackBack : classes.back}>
+                <Container className={classes.container} maxWidth="md">
                     <Typography className={this.state.numBad > 3 ? classes.badTitle : classes.title} variant="h1">{this.state.numBad > 3 ? "Go Back and Fix Your Mistake Fucker" : "WPM Calculator"}</Typography>
 
                     <Paper className={classes.text}>
@@ -147,7 +150,7 @@ class Game extends Component {
                         <Grid container>
                             <Grid item xs={6}>
                                 <Typography variant="h5">
-                                    WPM: {this.state.wpm}
+                                    WPM: {this.state.wpm.toFixed(2)}
                                 </Typography>
                             </Grid>
                             <Grid item className = {classes.restartButton} container xs={6}>
@@ -158,7 +161,7 @@ class Game extends Component {
                         </Grid>
                     </Paper>
                 </Container>
-            </div>
+            </Box>
         )
     }
 }
