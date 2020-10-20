@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import { Resizable } from 're-resizable';
-import { withStyles } from '@material-ui/core';
+import { Button, withStyles } from '@material-ui/core';
 
 const styles = theme => ({
     mainBox: {
@@ -25,7 +25,7 @@ class ChatBot extends Component {
                     height: 200
                 }}
             >
-                001
+                <Button fullWidth variant="contained" color="primary">Test Button</Button>
             </Resizable>
         )
     }

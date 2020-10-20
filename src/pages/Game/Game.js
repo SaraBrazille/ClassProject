@@ -67,6 +67,7 @@ class Game extends Component {
             numGood: 0,
             numBad: 0
         })
+
     }
 
     calcCorrect(target, input){
