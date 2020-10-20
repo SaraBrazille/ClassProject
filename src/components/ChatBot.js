@@ -9,7 +9,10 @@ const styles = theme => ({
         alignItems: "center",
         justifyContent: "center",
         border: "solid 3px " + theme.palette.primary.main,
-        background: "#f0f0f0"
+        background: "#f0f0f0",
+        position: "absolute !important",
+        bottom: 0,
+        right: 0
     }
 });
 
