@@ -62,7 +62,9 @@ export default class SqrtCalc extends Component {
         const {a, b, c, ...other} = this.state
         return (
             <div>
-                <AutosizeInput name="form-field-name" value={this.state.test ? this.state.test : "\u00a0\u00a0\u00a0\u00a0"} onChange={this.handelInputTest} /> <br /><br />
+                <br/>
+                <br/>
+                {/* <AutosizeInput name="form-field-name" value={this.state.test ? this.state.test : "\u00a0\u00a0\u00a0\u00a0"} onChange={this.handelInputTest} /> <br /><br /> */}
                 <TextField id="filled-basic" variant="filled" value={this.state.input1} onChange={this.handelInputOneChange} /> <br /><br />
                 <TextField id="filled-basic" variant="filled" value={this.state.input2} onChange={this.handelInputTwoChange} /> <br /><br />
                 <TextField id="filled-basic" variant="filled" value={this.state.input3} onChange={this.handelInputThreeChange} /> <br /><br />
@@ -70,8 +72,8 @@ export default class SqrtCalc extends Component {
                 <h2> Your equation is: <i>f(x)</i> = {this.state.input1 ? this.state.input1 : ""} X<sup>2</sup> + {this.state.input2 ? this.state.input2 : ""} X {this.state.input3 ? " + " + this.state.input3 : " + 0"}</h2>
                 <h1>Polynomial Root X<sub>1</sub> = {this.state.outputOne}</h1>
                 <h1>Polynomial Root X<sub>2</sub> = {this.state.outputTwo}</h1> <br />
-                <Graph dataToGraphX={this.state.input1} dataToGraphY={this.state.input2} dataToGraphZ={this.state.input3} />
-                {/* <Graph {...other} /> */}
+                {/* <Graph dataToGraphX={this.state.input1} dataToGraphY={this.state.input2} dataToGraphZ={this.state.input3} /> */}
+                <Graph {...other} />
             </div >
         )
     }
