@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { AppBar, Button, IconButton, TextField, Toolbar, Typography, withStyles } from '@material-ui/core';
-import { Menu } from "@material-ui/icons";
-import AutosizeInput from 'react-input-autosize';
+// import { Menu } from "@material-ui/icons";
+// import AutosizeInput from 'react-input-autosize';
 import Graph from './Graph/Graph';
 
 export default class SqrtCalc extends Component {
@@ -13,8 +13,6 @@ export default class SqrtCalc extends Component {
             input1: 1,
             input2: 1,
             input3: 1,
-            outputOne: 0,
-            outputTwo: 0,
             test: 0
         }
     }
@@ -40,30 +38,34 @@ export default class SqrtCalc extends Component {
         let b = parseFloat(this.state.input2);
         let c = parseFloat(this.state.input3);
         let partTwo = b * b - 4 * a * c;
-        MyAnswerOne = -b / (2 * a)
-        MyAnswerOne = MyAnswerOne.toFixed(2);
+        MyAnswerOne = -b / (2 * a);
         MyAnswerTwo = MyAnswerOne;
         if (partTwo < 0) {
             let imaginary = Math.sqrt(-partTwo) / (2 * a);
-            imaginary = imaginary.toFixed(2);
             MyAnswerOne += "+" + imaginary + "i";
             MyAnswerTwo += "-" + imaginary + "i";
         } else if (partTwo > 0) {
-            MyAnswerOne += Math.sqrt(partTwo) / (2 * a);
-            MyAnswerTwo += Math.sqrt(partTwo) / (2 * a);
+            MyAnswerOne += eval(Math.sqrt(partTwo) / (2 * a));
+            MyAnswerTwo -= Math.sqrt(partTwo) / (2 * a);
         }
+
+        MyAnswerOne = MyAnswerOne.toFixed(2);
+        MyAnswerTwo = MyAnswerTwo.toFixed(2);
 
         this.setState({
             outputOne: MyAnswerOne,
             outputTwo: MyAnswerTwo
         })
     }
+
+
+    
     render() {
-        const {a, b, c, ...other} = this.state
+        const { a, b, c, ...other } = this.state
         return (
             <div>
-                <br/>
-                <br/>
+                <br />
+                <br />
                 {/* <AutosizeInput name="form-field-name" value={this.state.test ? this.state.test : "\u00a0\u00a0\u00a0\u00a0"} onChange={this.handelInputTest} /> <br /><br /> */}
                 <TextField id="filled-basic" variant="filled" value={this.state.input1} onChange={this.handelInputOneChange} /> <br /><br />
                 <TextField id="filled-basic" variant="filled" value={this.state.input2} onChange={this.handelInputTwoChange} /> <br /><br />
