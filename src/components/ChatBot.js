@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import { Resizable } from 're-resizable';
-import { Button, withStyles } from '@material-ui/core';
+import { Button, Paper, TextField, withStyles } from '@material-ui/core';
 
 const styles = theme => ({
     mainBox: {
@@ -9,12 +9,14 @@ const styles = theme => ({
         flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
-        border: "solid 3px " + theme.palette.secondary.main,
-        background: theme.palette.primary.main,
         display: 'flex',
         position: "absolute !important",
         bottom: 20,
-        right: 20
+        right: 20,
+    },
+    paper: {
+        height: "100%",
+        width: "100%",
     },
     title: {
         height: "40px",
@@ -30,14 +32,15 @@ const styles = theme => ({
         width: "100%"
     },
     textBox: {
-        height: "40px",
+        height: "60px",
         width: "100%",
         wordBreak: "break-all",
-        border: "solid 3px " + theme.palette.primary.main,
-        background: "#f0f0f0",
+        border: "solid 1px " + theme.palette.secondary.light,
+        background: "white",
         boxSizing: "border-box",
-        
+        borderRadius: "3px",
     },
+
 });
 
 class ChatBot extends Component {
@@ -51,13 +54,15 @@ class ChatBot extends Component {
                     width: 200,
                     height: 200
                 }}
-            >
-                <div className={classes.title}> Chatting with Crystal</div>
-                <div className={classes.bodyBox}>
-                    nope
-                </div>
-                <input type="text" className={classes.textBox} onChange={() => {}} value="test"/>
-                
+            >   <Paper className={classes.paper} elevation={3}>
+                    <div className={classes.title}> Chatting with Crystal</div>
+                    <div className={classes.bodyBox}>
+                        nope
+                    </div>
+                    <form className={classes.textBox} noValidate autoComplete="off">
+                        <TextField fullWidth id="standard-basic" label="Say Something" />
+                    </form>
+                </Paper>
             </Resizable>
         )
     }
