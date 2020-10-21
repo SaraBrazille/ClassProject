@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { AppBar, Button, IconButton, TextField, Toolbar, Typography, withStyles } from '@material-ui/core';
-// import { Menu } from "@material-ui/icons";
-// import AutosizeInput from 'react-input-autosize';
 import Graph from './Graph/Graph';
 
-export default class SqrtCalc extends Component {
+const styles = theme =>({
+    title:{
+        textAlign: "center"
+    }
+})
+
+class SqrtCalc extends Component {
     constructor(props) {
         super()
         this.state = {
@@ -41,16 +45,15 @@ export default class SqrtCalc extends Component {
         MyAnswerOne = -b / (2 * a);
         MyAnswerTwo = MyAnswerOne;
         if (partTwo < 0) {
-            let imaginary = Math.sqrt(-partTwo) / (2 * a);
+            let imaginary = eval(Math.sqrt(-partTwo) / (2 * a)).toFixed(2);
             MyAnswerOne += "+" + imaginary + "i";
             MyAnswerTwo += "-" + imaginary + "i";
         } else if (partTwo > 0) {
-            MyAnswerOne += eval(Math.sqrt(partTwo) / (2 * a));
+            MyAnswerOne += Math.sqrt(partTwo) / (2 * a);
+            MyAnswerOne = MyAnswerOne.toFixed(2);
             MyAnswerTwo -= Math.sqrt(partTwo) / (2 * a);
+            MyAnswerTwo = MyAnswerTwo.toFixed(2);
         }
-
-        MyAnswerOne = MyAnswerOne.toFixed(2);
-        MyAnswerTwo = MyAnswerTwo.toFixed(2);
 
         this.setState({
             outputOne: MyAnswerOne,
@@ -59,11 +62,12 @@ export default class SqrtCalc extends Component {
     }
 
 
-    
+
     render() {
         const { a, b, c, ...other } = this.state
+        const {classes} = this.props
         return (
-            <div>
+            <div className={classes.title}>
                 <br />
                 <br />
                 {/* <AutosizeInput name="form-field-name" value={this.state.test ? this.state.test : "\u00a0\u00a0\u00a0\u00a0"} onChange={this.handelInputTest} /> <br /><br /> */}
@@ -80,3 +84,5 @@ export default class SqrtCalc extends Component {
         )
     }
 }
+
+export default withStyles(styles)(SqrtCalc);
