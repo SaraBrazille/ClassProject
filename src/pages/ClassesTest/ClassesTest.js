@@ -1,4 +1,4 @@
-import { AppBar, Button, IconButton, TextField, Toolbar, Typography, withStyles } from '@material-ui/core';
+import { AppBar, Box, Button, Container, IconButton, TextField, Toolbar, Typography, withStyles } from '@material-ui/core';
 import React, { Component } from 'react'
 
 
@@ -13,7 +13,7 @@ class Animal {
     }
 }
 
-let generator="";
+let generator = "";
 
 export default class ClassesTest extends Component {
     constructor(props) {
@@ -51,7 +51,7 @@ export default class ClassesTest extends Component {
 
     animalGen = () => {
 
-        generator= new Animal(this.state.box1, this.state.box2, this.state.box3)
+        generator = new Animal(this.state.box1, this.state.box2, this.state.box3)
         let otherGenerator = generator.speak();
 
         let newResponse = [...this.state.response, otherGenerator];
@@ -60,25 +60,40 @@ export default class ClassesTest extends Component {
             response: newResponse
         })
 
+
+
+    }
+    theDownload = () => {
+        this.downloadObjectAsJson(this.state.response, "yourAnimals")
+    }
+
+    downloadObjectAsJson(exportObj, exportName) {
+        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(exportObj,null,4));
+        var downloadAnchorNode = document.createElement('a');
+        downloadAnchorNode.setAttribute("href", dataStr);
+        downloadAnchorNode.setAttribute("download", exportName + ".json");
+        document.body.appendChild(downloadAnchorNode); // required for firefox
+        downloadAnchorNode.click();
+        downloadAnchorNode.remove();
     }
 
     render() {
         console.log(this.state.response);
         return (
-            <div>
-
-                <TextField id="filled-basic" variant="filled" value={this.state.box1} onChange={this.inputName} /> <br /><br />
-                <TextField id="filled-basic" variant="filled" value={this.state.box2} onChange={this.inputAnimalType} /> <br /><br />
-                <TextField id="filled-basic" variant="filled" value={this.state.box3} onChange={this.inputWeight} /> <br /><br />
-                <Button variant="contained" color="primary" onClick={this.animalGen}>Generate Animal</Button>
-
-                {
-                    this.state.response.map(
-                        (response) => (<h3>{response}</h3>)
-                    )
-                }
-
-            </div>
+            <Container maxWidth="sm" item xs={6} md={4} lg={3}>
+                <Box display="flex" flexDirection="column">
+                    <TextField id="filled-basic" variant="filled" value={this.state.box1} onChange={this.inputName} /> <br /><br />
+                    <TextField id="filled-basic" variant="filled" value={this.state.box2} onChange={this.inputAnimalType} /> <br /><br />
+                    <TextField id="filled-basic" variant="filled" value={this.state.box3} onChange={this.inputWeight} /> <br /><br />
+                    <Button variant="contained" color="primary" onClick={this.animalGen}>Generate Animal</Button>
+                    <Button variant="contained" color="primary" onClick={this.theDownload}> Click to Export List of Animals</Button>
+                    {
+                        this.state.response.map(
+                            (response) => (<h3>{response}</h3>)
+                        )
+                    }
+                </Box>
+            </Container>
         )
     }
 }
