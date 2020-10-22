@@ -1,12 +1,10 @@
 import React, { Component } from 'react';
 import { render } from "react-dom";
 import { Resizable } from 're-resizable';
-import { Button, Paper, TextField, withStyles } from '@material-ui/core';
+import { Button, Paper, TextField, Typography, withStyles } from '@material-ui/core';
 
 const styles = theme => ({
     mainBox: {
-        display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         display: 'flex',
@@ -17,25 +15,28 @@ const styles = theme => ({
     paper: {
         height: "100%",
         width: "100%",
+        display: "flex",
+        flexDirection: "column",
+        overflow: "hidden"
     },
     title: {
-        height: "40px",
-        width: "100%",
-        textDecoration: "underline",
-        textAlign: "center"
+        textAlign: "center",
+        color: "white",
+        backgroundColor: theme.palette.primary.main,
+        
     },
     bodyBox: {
         flex: "1",
         height: "100px",
         wordBreak: "break-all",
-        background: "lightGray",
-        width: "100%"
+        background: "white",
+        width: "100%",
+        borderTop: "solid 1px " + theme.palette.secondary.light,
     },
     textBox: {
         height: "60px",
         width: "100%",
         wordBreak: "break-all",
-        border: "solid 1px " + theme.palette.secondary.light,
         background: "white",
         boxSizing: "border-box",
         borderRadius: "3px",
@@ -55,7 +56,7 @@ class ChatBot extends Component {
                     height: 200
                 }}
             >   <Paper className={classes.paper} elevation={3}>
-                    <div className={classes.title}> Chatting with Crystal</div>
+                    <Typography variant="h6" className={classes.title}> Chatting with Crystal</Typography>
                     <div className={classes.bodyBox}>
                         nope
                     </div>
