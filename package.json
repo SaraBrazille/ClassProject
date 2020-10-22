@@ -8,6 +8,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.2.1",
+    "irc": "^0.5.2",
     "pixi.js": "^5.0.0-rc",
     "random-words": "^1.1.1",
     "re-resizable": "^6.6.1",
